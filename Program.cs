@@ -8,6 +8,7 @@
 //var arrayNumComVat = new int[3];
 
 using System.ComponentModel;
+using System.Net.Http.Headers;
 
 int num1 ;
 num1 = 5;
@@ -62,3 +63,37 @@ for(int i = 0; i < tamanhoArrary; i++)
 
 
 /// Crie um programa para calculo de média que pegunte quantas notas, obtenha os valores delas,  e  realize  o calculo e depois exiba a nota. 
+
+
+Console.WriteLine("Quantas notas você deseja calcular a média?");
+int quantidadeNotas = int.Parse(Console.ReadLine());
+
+double[] notas = new double[quantidadeNotas];
+// solucao mais compreensivel
+for (int i = 0; i < quantidadeNotas; i++)
+{
+    Console.Write("Digite a nota: " + i);
+    notas[i] = double.Parse(Console.ReadLine());
+}
+
+double soma = 0; 
+for (int i = 0; i< quantidadeNotas; i++)
+{
+    soma += notas[i];    
+}
+
+
+/// solução mais performatica 
+// double soma = 0; 
+// for (int i = 0; i < quantidadeNotas; i++)
+// {
+//     Console.Write("Digite a nota: " + i);
+//     notas[i] = double.Parse(Console.ReadLine());
+//     soma += notas[i];    
+// }
+
+
+
+double media = soma / quantidadeNotas; 
+
+Console.WriteLine("a media é de "+ media); 
