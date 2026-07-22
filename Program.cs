@@ -9,6 +9,7 @@
 
 using System.ComponentModel;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 
 int num1 ;
 num1 = 5;
@@ -79,7 +80,7 @@ for (int i = 0; i < quantidadeNotas; i++)
 double soma = 0; 
 for (int i = 0; i< quantidadeNotas; i++)
 {
-    soma += notas[i];    
+    soma += notas[i];    /// soma = soma + notas[i];
 }
 
 
@@ -97,3 +98,63 @@ for (int i = 0; i< quantidadeNotas; i++)
 double media = soma / quantidadeNotas; 
 
 Console.WriteLine("a media é de "+ media); 
+
+
+//Listas  -- Mesma proposta anterior 
+
+Console.WriteLine("Qual o tamanho da sua Lista ?");
+int tamanhoLista = int.Parse(Console.ReadLine()); 
+
+List<string> textosLista = new List<string>();
+
+for (int i = 0; i < tamanhoLista; i++)
+{
+    Console.WriteLine($"digite o {i} nome: ");
+    string valorDigitado = Console.ReadLine();
+    textosLista.Add(valorDigitado);
+}
+
+Console.WriteLine($"Sua lista tem {textosLista.Count} itens ");
+
+for(int i = 0; i < textosLista.Count; i++)
+{
+    Console.WriteLine($"O nome na posicao {i} é {textosLista[i]}");
+}
+
+//foreach 
+foreach (string item in textosLista)
+{
+    Console.WriteLine("o nome é : "+ item);
+}
+
+//foreach + interacao 
+int interacao = 0; 
+foreach (string item in textosLista)
+{
+    Console.WriteLine($"O nome na posicao {interacao} é {item}");
+    interacao++;
+}
+
+///
+/// Mostrar uso de lista : 
+
+
+List<int> sequencia = new List<int>(100); 
+
+for (int i = 0;  i< 100; i++ )
+{
+    sequencia.Add(i);
+}
+
+int[] meuArrayNumerico = sequencia.ToArray();
+List<int> sequencia2 = meuArrayNumerico.ToList();
+
+sequencia2.AddRange(sequencia);
+sequencia.Clear();
+
+
+Console.WriteLine("dddd");
+
+
+/// Exercicio de agora receber nomes e preencher na lista ate que o usuario digite sair, quando digitar sair deve mostrar todos os nomes que foram preenchidos
+/// 
