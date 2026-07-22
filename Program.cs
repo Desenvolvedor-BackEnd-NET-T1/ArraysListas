@@ -9,6 +9,7 @@
 
 using System.ComponentModel;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 int num1 ;
@@ -158,3 +159,21 @@ Console.WriteLine("dddd");
 
 /// Exercicio de agora receber nomes e preencher na lista ate que o usuario digite sair, quando digitar sair deve mostrar todos os nomes que foram preenchidos
 /// 
+
+
+List<string> textosDigitados = new List<string>();
+
+string valor; 
+do 
+{ 
+    Console.WriteLine("Digite um nome ou digite sair para encerrar: ");
+    valor = Console.ReadLine();
+    if (valor != "sair"){
+        textosDigitados.Add(valor);
+    }
+}while(valor != "sair");
+
+foreach(var item in textosDigitados)
+{
+    Console.WriteLine("vc digitou: " + item);
+}
